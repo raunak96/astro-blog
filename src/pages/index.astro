@@ -2,13 +2,15 @@
 // Any JS expression we want to add, we do it inside this 3 hyphens block (it is async by default)
 // Also Component Imports (from any supported Framework here!) goes here
 import Layout from "../layouts/Layout.astro";
+import Showcase from "../components/Showcase";
 const heading = "Astro 2.0" as string;
 ---
 
 <Layout title={heading}>
+	<!-- Client:load loads component JS at page load, here we are doing this to invoke click event in showcase -->
+	<Showcase client:load />
 	<h1>Welcome to {heading}</h1>
 </Layout>
-
 
 <!-- Here these styles only pertain this particular component/page -->
 <!-- <style>
