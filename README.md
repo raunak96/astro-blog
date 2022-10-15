@@ -51,3 +51,5 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 3. Learnt how to integrate UI framework (in our case React) and use it in Astro. Refer [docs](https://docs.astro.build/en/guides/integrations-guide/react/).
 
 4. Learnt to add JS actions in Astro. Its the same as vanilla JS. Add `<script></script>` tag and inside it write vanilla js logic. We can also attach variables to script which can also be props received ([refer](./src/components/Tabs.astro#L48))
+
+5. Routing is similar to **NextJs**, where fileName in pages folder becomes the route name. For eg: `pages/about.astro` leads to **/about** route.

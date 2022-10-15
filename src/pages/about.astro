@@ -1,0 +1,80 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import logos from "../images/deploy-logos.png";
+import logosSmall from "../images/deploy-logos-small.png";
+import Card from "../components/Card.astro";
+---
+
+<Layout title="About Astro">
+	<section class="page-content">
+		<div class="container">
+			<h2>About Astro</h2>
+			<p>
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+				Veniam, vel quas repudiandae optio voluptatibus dolore maxime
+				sed nisi ad, quod exercitationem. Magni facilis ducimus neque
+				nostrum voluptas, eius, aliquam ullam eligendi corporis
+				perferendis dolor iusto veniam cumque saepe iste porro, non
+				optio amet. Enim esse porro incidunt sequi consectetur vitae.
+			</p>
+
+			<p>
+				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio
+				porro sequi officia nihil optio dicta eos, cumque asperiores id
+				harum, qui quas dolorem tempore? Recusandae repudiandae magnam
+				quae doloribus impedit.
+			</p>
+
+			<Card>
+				<h3>Use the tools you already love</h3>
+				<p>
+					Bring your own component framework. Astro offers first-class
+					support for front-end tools like React, Vue, Svelte, and
+					Tailwind CSS. Avoid confusing configuration and get started
+					in seconds: just type <code>astro add</code>.
+				</p>
+			</Card>
+
+			<h3>Deploy to anywhere, even the edge</h3>
+			<img class="logos" src={logos} alt="" />
+			<img class="logos-small" src={logosSmall} alt="" />
+			<p>
+				Astro supports both static output (SSG) and live server output
+				(SSR). No matter what you choose to build, Astro's flexible
+				adapter system makes deployment setup and configuration a
+				breeze.
+			</p>
+
+			<h3>Our community is pretty great, too.</h3>
+			<p>
+				Join us in the Astro Discord to share with and get help from an
+				active, friendly community!
+			</p>
+
+			<ul>
+				<li>💬 Say hi in our #introduce-yourself channel!</li>
+				<li>
+					💬 Ask our Support Squad a question in our #support-threads
+					channel!
+				</li>
+				<li>
+					💬 Share what you've been working on in our #showcase
+					channel!
+				</li>
+			</ul>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	p code {
+		color: #111827;
+		font-weight: 400;
+		font-size: 0.875em;
+		background-color: #ede9fe;
+		padding-block: 0.25rem;
+		padding-inline: 0.375rem;
+		border-radius: 0.25rem;
+	}
+</style>
