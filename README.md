@@ -45,3 +45,5 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 
 ## Commit History
 1. Using JS inside Astro Files - Similar to React (We can also directly use React/Vue etc components inside if we download their corresponding package)
+
+2. Making Layout component which will be common to our pages and contains the html/meta/header tags. We also learnt how {children} works here - it is called [`<slot>`](./src/pages/index.astro#L8) in Astro. We also learnt how props are used and propTypes syntax in Astro [refer](./src/layouts/Layout.astro#L4).
