@@ -1,0 +1,31 @@
+---
+import Card from "../components/Card.astro";
+import Showcase from "../components/Showcase.astro";
+import Layout from "../layouts/Layout.astro";
+
+/* Fetch Posts from an API/CMS */
+const res = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=10");
+const posts = (await res.json()) as Array<{
+	title: string;
+	body: string;
+}>;
+---
+
+<Layout title="Blog from API">
+	<Showcase
+		heading="Astro Blog"
+		text="A simple blog built with Astro with blog data fetched from API/CMS"
+	/>
+	<section class="page-content">
+		<div class="container">
+			{
+				posts.map(({ title, body }) => (
+					<Card>
+						<h3>{title}</h3>
+						<p>{body}</p>
+					</Card>
+				))
+			}
+		</div>
+	</section>
+</Layout>
