@@ -1,0 +1,32 @@
+---
+import featuresData from "../data/features";
+import Card from "./Card.astro";
+---
+
+<section class="features">
+	<div class="container">
+		{
+			featuresData.map(({ title, body }, ind) => (
+				<Card dark={!!(ind & 1)}>
+					<h3>{title}</h3>
+					<p>{body}</p>
+				</Card>
+			))
+		}
+	</div>
+</section>;
+
+<style>
+	.features .container {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 20px;
+		padding: 0 20px;
+		margin: 30px auto;
+	}
+	@media (max-width: 640px) {
+		.features .container {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
