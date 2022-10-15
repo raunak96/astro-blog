@@ -1,0 +1,51 @@
+---
+import Card from "../components/Card.astro";
+import Layout from "../layouts/Layout.astro";
+
+/* Dynamic Routes syntax and file naming is exactly same as NextJs */
+export async function getStaticPaths() {
+	const posts = await Astro.glob("../blogs/*.md");
+	return posts.map(post => ({
+		params: {
+			slug: post.frontmatter.slug,
+		},
+		props: { post },
+	}));
+}
+const { Content, frontmatter } = Astro.props.post; // from above function we got post as Props
+---
+
+<Layout title={frontmatter.title}>
+	<section class="page-content">
+		<div class="container">
+			<Card>
+				<a href="/blog" class="btn">Go Back</a>
+				<h2>{frontmatter.title}</h2>
+				<div class="author">
+					{new Date(frontmatter.date).toDateString()} by
+					<strong>{frontmatter.author}</strong>
+				</div>
+				<hr />
+				<Content />
+			</Card>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	h2,
+	.author {
+		text-align: center;
+	}
+	.author {
+		color: rgb(100 116 139 / 0.9);
+		word-spacing: 2px;
+	}
+	hr {
+		height: 0;
+		color: rgb(15, 23, 42);
+		border-top-width: 1px;
+		margin: 1rem auto 2rem;
+		opacity: 0.5;
+	}
+</style>

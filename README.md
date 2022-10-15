@@ -1,21 +1,6 @@
-# Welcome to [Astro](https://astro.build)
+# Static Web Site Built with [Astro](https://astro.build)
 
-## 🚀 Project Structure
-
-Inside of the Astro project, you'll see the following folders and files:
-
-```
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+![Home Page Preview](/src/images/home.png)
 
 Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
@@ -24,19 +9,7 @@ There's nothing special about `src/components/`, but that's where we like to put
 `src/layout` has elements like html,meta,header tags and things which are common to many pages.
 
 Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                | Action                                             |
-| :--------------------- | :------------------------------------------------- |
-| `npm install`          | Installs dependencies                              |
-| `npm run dev`          | Starts local dev server at `localhost:3000`        |
-| `npm run build`        | Build your production site to `./dist/`            |
-| `npm run preview`      | Preview your build locally, before deploying       |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
-| `npm run astro --help` | Get help using the Astro CLI                       |
+                     |
 
 ## 👀 Want to learn more?
 
@@ -54,7 +27,7 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
    - creating variables that you will reference in your template
   (It is async by default) [refer](./src/pages/blog-api.astro#L1)
 
-3. Making Layout component which will be common to our pages and contains the html/meta/header tags. We also learnt how {children} works here - it is called [`<slot>`](./src/layouts/Layout.astro#L32) in Astro. We also learnt how props are used and propTypes syntax in Astro [refer](./src/layouts/Layout.astro#L4).
+3. Making Layout component which will be common to our pages and contains the html/meta/header tags. We also learnt how {children} works here - it is called [`<slot>`](./src/layouts/Layout.astro#L32) in Astro. We also learnt how props are used and propTypes syntax in Astro [refer](./src/layouts/Layout.astro#L6).
 
 4. Learnt how to integrate UI framework (in our case React) and use it in Astro. Refer [docs](https://docs.astro.build/en/guides/integrations-guide/react/).
 
@@ -64,7 +37,12 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 
 7. ## Getting Data directly from local Markdown Files
     - Simply use the following function:
- ```javascript
- Astro.glob(`<file-location> of .md file`)
- ```
- It will automatically parse the Markdown file into an object with keys like `frontmatter`. `glob()` function fetches any local files (not just .md) into our static site setup. [Refer](./src/pages/blog.astro#L7).
+ 
+    ```javascript
+    Astro.glob(`<file-location> of .md file`)
+    ``` 
+    
+    - It will automatically parse the Markdown file into an object with keys like `frontmatter`. `glob()` function fetches any local files (not just .md) into our static site setup. [Refer](./src/pages/blog.astro#L7).
+
+8. ## Dynamic Pages
+   - The process of dynamic page is exactly similar to `NextJS`. The file is named as `[routeName].astro` and then inside the file using exporting async `getStaticPaths` function which returns array of paths (and props for each of them) for which the routes/pages are created during build. [Refer](./src/pages/%5Bslug%5D.astro).
